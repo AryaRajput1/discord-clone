@@ -2,7 +2,7 @@ import { Channel, ChannelType, Server } from '@prisma/client';
 import { Modak } from 'next/font/google';
 import {create } from 'zustand'
 
-export type ModalType = 'createServer' | 'invite' | 'editServer' | 'members' | 'createChannel' | 'leaveServer' |'deleteServer' | 'deleteChannel' | 'editChannel' | 'messageFile';
+export type ModalType = 'createServer' | 'invite' | 'editServer' | 'members' | 'createChannel' | 'leaveServer' |'deleteServer' | 'deleteChannel' | 'editChannel' | 'messageFile' | 'deleteMessage';
 
 export interface ModalData {
     server?:Server;
