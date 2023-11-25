@@ -3,6 +3,7 @@ import MobileToggle from "../mobileToggle";
 import { Avatar } from "../ui/avatar";
 import UserAvatar from "../userAvatar";
 import SocketIndicator from "../socketIndicator";
+import { ChatVideoButton } from "./chatVideoButton";
 
 interface ChatHeaderProps {
     serverId:string;
@@ -37,6 +38,9 @@ function ChatHeader({
             {name}
         </p>
         <div className="ml-auto flex items-center">
+            {type==='conversation' &&(
+                <ChatVideoButton/>
+            )}
             <SocketIndicator/>
         </div>
 
