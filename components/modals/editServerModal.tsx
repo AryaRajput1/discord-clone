@@ -47,9 +47,9 @@ function EditServerModal() {
     },[server,form])
 
     const isLoading = form.formState.isSubmitting;
-    const onSubmit =async (data: z.infer<typeof formSchema>): void => {
+    const onSubmit =async (data: z.infer<typeof formSchema>)=> {
         try {
-            await axios.patch(`/api/servers/${server.id}`,data)
+            await axios.patch(`/api/servers/${server?.id}`,data)
             form.reset();
             router.refresh()
             onClose()

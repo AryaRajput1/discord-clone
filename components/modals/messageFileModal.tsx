@@ -37,10 +37,10 @@ function MessageFileModal() {
     )
     const {apiUrl,query} = data;
     const isLoading = form.formState.isSubmitting;
-    const onSubmit =async (data: z.infer<typeof formSchema>): void => {
+    const onSubmit =async (data: z.infer<typeof formSchema>) => {
         try {
             const url = qs.stringifyUrl({
-                url:apiUrl,
+                url:apiUrl as string,
                 query
             })
             await axios.post(url,{

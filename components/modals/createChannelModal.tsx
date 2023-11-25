@@ -33,28 +33,29 @@ function CreateChannelModal() {
     const { isOpen, type, onClose, data } = useModal()
     const router = useRouter()
     const params = useParams()
+    const { channelType } = data;
     const isModalOpen = isOpen && type === 'createChannel';
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
             name: '',
-            type:ChannelType|| ChannelType.TEXT
+            type: channelType || ChannelType.TEXT
         }
     }
     )
-    const { channelType } = data;
+  
 
     useEffect(() => {
         if (channelType) {
             form.setValue("type", channelType)
         } else {
-            form.setValue("type", channelType?.TEXT)
+            form.setValue("type", ChannelType?.TEXT)
 
         }
     },[channelType,form])
 
     const isLoading = form.formState.isSubmitting;
-    const onSubmit = async (data: z.infer<typeof formSchema>): void => {
+    const onSubmit = async (data: z.infer<typeof formSchema>) => {
         try {
             const url = qs.stringifyUrl({
                 url: '/api/channels',

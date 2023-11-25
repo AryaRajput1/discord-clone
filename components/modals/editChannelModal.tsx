@@ -70,10 +70,10 @@ function EditChannelModal() {
   }, [form, channel]);
 
   const isLoading = form.formState.isSubmitting;
-  const onSubmit = async (data: z.infer<typeof formSchema>): void => {
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
     try {
       const url = qs.stringifyUrl({
-        url: `/api/channels/${channel.id}`,
+        url: `/api/channels/${channel?.id}`,
         query: {
           serverId: server?.id,
         },
