@@ -2,7 +2,7 @@ import { type } from "os";
 import { useEffect, useState } from "react"
 
 export const useOrigin = () => {
-const [mounted,setMounted] =useState();
+const [mounted,setMounted] =useState(false);
 useEffect(()=>{
     setMounted(true);
 },[])
