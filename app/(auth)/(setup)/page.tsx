@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import React from 'react'
 
 async function SetupPage() {
-    const profile = initialProfile();
+    const profile =await initialProfile();
 
     const server =await db.server.findFirst({
         where: {

@@ -6,8 +6,8 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "./ui/t
 interface ActionTooltipProps {
     label: string;
     children: React.ReactNode;
-    side: 'top' | 'right' | 'bottom' | 'left';
-    align: 'start' | 'center' | 'end';
+    side?: 'top' | 'right' | 'bottom' | 'left';
+    align?: 'start' | 'center' | 'end';
 }
 
 export const ActionToolTip = ({
