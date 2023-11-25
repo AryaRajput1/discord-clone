@@ -1,6 +1,6 @@
 "use client";
 
-import React, { KeyboardEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Search } from "lucide-react";
 import { CommandDialog, CommandInput, CommandItem, CommandList } from "../ui/command";
@@ -17,7 +17,7 @@ interface ServerSearchProps {
             name:string;
             id:string;
         }[] | undefined;
-    }
+    }[]
 }
 const  ServerSearch=({data}:ServerSearchProps)=>{
     const [open ,setOpen] =useState(false);
@@ -63,14 +63,14 @@ const  ServerSearch=({data}:ServerSearchProps)=>{
                 No Results Found
             </CommandEmpty>
             {
-                data?.map(({label,type,data})=>{
+                data.map(({label,type,data})=>{
                     if(!data?.length){
                         return null;
                     }
                     return (
                         <CommandGroup key={label} heading={label}>
                             {
-                                data?.map(({id,icon,name})=>{
+                                data.map(({id,icon,name})=>{
                                     return (
                                         <CommandItem onSelect={()=>onClick({id,type})} key={id}>
                                             {icon}

@@ -11,6 +11,7 @@ import { Separator } from '../ui/separator'
 import ServerSection from './ServerSection'
 import ServerChannel from './serverChannel'
 import ServerMember from './serverMember'
+import { redirectToSignIn } from '@clerk/nextjs'
 interface ServerSidebarProps {
     serverId: string
 }
@@ -66,7 +67,7 @@ async function ServerSidebar({ serverId }: ServerSidebarProps) {
                 <ServerSearch data={
                     [{
                         label: "Text Channels",
-                        type: 'Channel',
+                        type: 'channel',
                         data: textChannels?.map((channel) => ({
                             id: channel.id,
                             name: channel.name,
@@ -75,7 +76,7 @@ async function ServerSidebar({ serverId }: ServerSidebarProps) {
                     },
                     {
                         label: "Voice Channels",
-                        type: 'Channel',
+                        type: 'channel',
                         data: audioChannels?.map((channel) => ({
                             id: channel.id,
                             name: channel.name,
@@ -84,7 +85,7 @@ async function ServerSidebar({ serverId }: ServerSidebarProps) {
                     },
                     {
                         label: "Video Channels",
-                        type: 'Channel',
+                        type: 'channel',
                         data: videoChannels?.map((channel) => ({
                             id: channel.id,
                             name: channel.name,
@@ -93,7 +94,7 @@ async function ServerSidebar({ serverId }: ServerSidebarProps) {
                     },
                     {
                         label: "Members",
-                        type: 'Member',
+                        type: 'member',
                         data: members?.map((member) => ({
                             id: member.id,
                             name: member.profile.name,
